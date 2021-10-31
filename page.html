@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Oscar</title>
+	<style type="text/css">
+		
+		input[type='checkbox'] {
+
+    		-webkit-appearance:none;
+    		width:20px;
+    		height:18px;
+    		background:white;
+    		border:2px solid #555;
+    		margin-left:auto;
+		}
+		input[type='checkbox']:checked {
+ 		   background: red;
+		}
+		
+		i{
+			width-right: auto;
+		}
+		#imgspan{
+			font-size: 20px;
+   			position:absolute;
+   			padding-left: 160px;
+   			color:  #009691;
+   			background-color: white;
+    		opacity: 0.6;
+    		width: 640px;
+    		line-height: 6vh;
+		}
+		button{background-color: #009691;color: white;font-size: 9pt;border-radius: 3px;margin: 25px;height: 25px;}
+		section span{margin-left: 25px;margin-right: auto;display: inline-block;width: 100px;height:25px;}
+		body {
+			margin: auto;
+			width: 800px;
+			display: grid;
+			background-color: white;
+			grid-template-rows: 230px 200px auto auto auto;
+			grid-template-columns: 400px 400px;
+			grid-template-areas:
+			"logo sante"
+			"osteo osteo"
+			"zapis zapis"
+			"autor autor"
+			"logo2 footer";
+
+		}
+		@media all and (max-width: 400px) {
+  			body {
+  				display: grid;
+  				max-width: 400px;
+    			margin-left: 10px;
+    			grid-template-rows: auto 1fr auto auto auto auto auto;
+				grid-template-columns: 400px;
+    			grid-template-areas:
+    			"logo"
+    			"sante"
+    			"osteo"
+    			"zapis"
+    			"autor"
+    			"logo2"
+    			"footer"; 
+    		}
+    		#imgspan{
+			font-size: 20px;
+   			position:absolute;
+   			padding-left: 60px;
+   			color:  #009691;
+   			background-color: white;
+    		opacity: 0.6;
+    		width: 340px;
+    		line-height: 3vh;
+		}
+    		
+		}
+	#logo {
+		padding-top: 16px;
+  		grid-area: logo;
+		}
+	#sante {
+		text-align: center;
+  		grid-area: sante;
+		}
+	#osteo { 
+  		grid-area: osteo;      
+  		}
+  	#zapis{
+  		padding-right: 2vw;
+  		padding-left:2vw;
+  		grid-area: zapis;
+  	}
+  	#autor{
+  		grid-area: autor;
+  	}
+  	#logo2{
+  		background-color: #373949;
+  		grid-area: logo2;
+  	}
+  	#footer{
+  		background-color:#373949 ;
+  		grid-area: footer;
+  		color: white;
+  	}
+	</style>
+</head>
+<body>
+	
+	<header id="logo"><img src="logoCliniqueOscar.jpg"></header>
+
+	<header id="sante">
+		<p style="background-color:#00988C;line-height:25px;text-align: center;color: white;padding: 5px;">CERTIFICATION</p>
+			<img src="sante.jpg">
+		<p style="background-color:#00988C;line-height:25px;text-align: center;color:white;padding: 5px;">PRENEZ RENDEZ-VOUS</p>
+	</header>
+	<header id="osteo">
+		<span id="imgspan">Réservez une consultation ostéopathique</span>
+		<picture>
+			<source media="(max-width:400px)" srcset="osteoRDV400x120.jpg">
+  				<img src="osteoRDV800x168.jpg">
+			</picture>
+	</header>
+	<section id="zapis">
+		<p style="text-align: justify; margin:auto;">Chaque consultation dure environ 45 minutes.</p>
+		<p >
+			<ul style="text-align: justify; margin:auto;">
+  				<li>15€ pour les enfants, les étudiants et les tarifs réduits </li>
+  				<li>20€ pour le tarif adulte</li>
+  				<li>60€ pour 6 séances</li>
+  			</ul>
+  		</p>
+  		<p style="text-align: justify; margin:auto;">En clinique les soins sont dispensés par nos étudiants encadrés par des <b>enseignants ostéopathes professionels.</b></p>
+  		<p style="text-align: justify;margin:auto;line-height: 7vh;">Merci de renseigner les champs ci-dessous.</p>
+  		<!-- zdes zapissssssssssssssssssss-->
+  		<form action="sendData.php" method="post">
+		<span>Nom</span><input type="text" name="Nom" required="required" value="m"><br>
+		<span>Prénom</span><input type="text" name="Prénom" required="required"><br>
+		<span>Téléphone</span><input id="phone" type="Tel" name="Téléphone" required="required" pattern="0[0-9]{9}"><br>
+		<span>Courriel</span><input id="mail" type="email" name="Courriel" required="required"><br>
+		<span>Date RDV</span><input type="Date" name="Date"><br>
+		<span id="hour">Heure RDV</span><input type="time" name="Heure" min="09:00" max="17:00" required="required"><br>
+		<span>Tarif</span><select>
+			<optgroup label="Choix">
+			<option value="1" selected="selected">15€</option>
+			<option value="2">20€</option>
+			<option value="3">60€</option>
+			</optgroup>
+	</select><br>
+	<!--ZDESSSSS OSHIBKA-->
+	<section id="autor">
+		<input class="click" type="checkbox" name="check"  required="required" checked="checked" placeholder="--Choix--">
+		<i>J'autorise la Clinique Oscar à utiliser mes coordonnées uniquement pour me contacter et gérer mon rendez-vous</i><br>
+		<button>Prendre RDV</button>
+	</section>
+	</section>
+		<footer id="logo2">
+			<img src="logoEcoleOscar.jpg">
+		</footer>
+		<footer id="footer">
+			<p>ÉCOLE OSCAR</p>
+  			<p>Campus Privé d'Alsace<br>
+  				24a Rue des Magasins-67000 Strasbourg<br>
+  				Tel:+33(0)3 88 23 14 14-info@ecoleoscar.com
+  			</p>
+	</section>
+</body>
+</html>
